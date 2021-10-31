@@ -125,8 +125,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-GOOGLE_RECAPTCHA_SITE_KEY = "6LdwxPAcAAAAAFjvlu2FIpngt4uBgycNGTj5tlxZ"
-GOOGLE_RECAPTCHA_SECRET_KEY = "6LdwxPAcAAAAAH2Rd9ldm0hjC0JI7JYrXWw03aap"
+GOOGLE_RECAPTCHA_SITE_KEY = ""
+GOOGLE_RECAPTCHA_SECRET_KEY = ""
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
@@ -140,6 +140,6 @@ STATICFILES_DIRS = (
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'hrishikeshkothawade1@gmail.com'
-EMAIL_HOST_PASSWORD = 'hvenkwynsfrzrbgr'
+EMAIL_HOST_USER = 'something1@gmail.com'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
