@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Accounts | Register {% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 ">
+      <div class="text-center mt-2"><img src="https://uidai.gov.in/images/logo/aadhaar_english_logo.svg"></div>
+
+<h3 class="text-center alert alert-danger">Register Form</h3>
+<div class="container pt-3 shadow rounded-3 pb-3">
+<form method="POST">
+  {% csrf_token %}
+   {{form|crispy}}
+
+  <div class="form-group">
+    <button class="btn btn-info" type="submit">Register</button>
+  </div>
+</form>
+</div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

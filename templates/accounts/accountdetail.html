@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Account | AccountDetails{% endblock %}
+{% block content %}
+<div class="container  pt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 shadow rounded-3">
+      <h3 class="text-center">Account Details</h3>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy}}
+        <div class="form-group">
+          <button class="btn btn-outline-info mt-3 mb-3" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

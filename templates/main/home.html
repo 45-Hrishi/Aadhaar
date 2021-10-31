@@ -1,0 +1,79 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% include 'main/includes/messages.html' %}
+{% block content %}
+<script>
+  //global grecaptcha
+  grecaptcha.ready(function () {
+    grecaptcha.execute('{{recaptcha_site_key}}', { action: "" }).then(function (token) {
+      document.getElementById('g-recaptcha-response').value = token;
+    });
+  });
+</script>
+{% block navbar %}{% include 'main/navbar.html' %}{% endblock %}
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide mt-2" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{% static 'main/one.jpg'%}" class="d-block w-100" style="height: 20rem;" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="{% static 'main/two.jpg'%}" class="d-block w-100" style="height: 20rem;"alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'main/three.jpg'%}" class="d-block w-100" style="height: 20rem;"alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="container">
+  <div class="row justify-content-end mr-0">
+    <div class="col-lg-5 mb-1 mt-1">
+      <div class = "alert alert-warning">
+        <h1>Contact</h1>
+      <h4>Contact us directly if you have any questions</h4>
+      <p>
+        Please write your name, email address and a message below if you have any questions.
+        One of our staff members will be happy to contact you directly and answer your questions as soon as possible.
+      </p>
+      </div>
+      
+
+      <form method="post" id="contactform">
+        {% csrf_token %}
+        {{form|crispy}}
+        <!-- reCAPTCHA input -->
+        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+        <button type="submit" class="btn btn-outline-info mt-3 mb-3">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--Footer-->
+<footer class="footer mt-auto py-3 bg-info">
+  <div class="container">
+    <span class="text">Copyright © 2019 Unique Identification Authority of India All Rights Reserved
+      <br>
+      Created By Hrishi and Shubham
+    </span>
+  </div>
+</footer>
+{% endblock %}
+
+</body>
+
+</html>
